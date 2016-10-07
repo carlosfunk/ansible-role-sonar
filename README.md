@@ -1,6 +1,6 @@
-# Ansible Role: SonarQube
+# Ansible Role: SonarQube on Postgres
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-sonar.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-sonar)
+[![Build Status](https://travis-ci.org/carlosfunk/ansible-role-sonar.svg?branch=master)](https://travis-ci.org/carlosfunk/ansible-role-sonar)
 
 An Ansible Role that installs [SonarQube](http://www.sonarqube.org/) on RedHat/CentOS and Debian/Ubuntu Linux servers.
 
@@ -24,24 +24,24 @@ Directory where downloaded files will be temporarily stored.
 
 The URL from which SonarQube will be downloaded, and the resulting directory name (should match the download archive, without the archive extension).
 
-    sonar_mysql_username: sonar
-    sonar_mysql_password: sonar
+    sonar_database_username: sonar
+    sonar_database_password: sonar
     
-    sonar_mysql_host: localhost
-    sonar_mysql_port: "3306"
-    sonar_mysql_database: sonar
+    sonar_database_host: localhost
+    sonar_database_port: "3306"
+    sonar_database: sonar
     
-    sonar_mysql_allowed_hosts:
+    sonar_database_allowed_hosts:
       - 127.0.0.1
       - ::1
       - localhost
 
-JDBC settings for a connection to a MySQL database. Defaults presume the database resides on localhost and is only accessible on the SonarQube server itself.
+JDBC settings for the database. Defaults presume the database resides on localhost and is only accessible on the SonarQube server itself.
 
 ## Dependencies
 
   - geerlingguy.java
-  - geerlingguy.mysql
+  - ANXS.postgresql
 
 ## Example Playbook
 
@@ -57,4 +57,4 @@ MIT / BSD
 
 ## Author Information
 
-This role was created in 2014 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).
+This role was created by [Jeff Geerling](http://jeffgeerling.com/) and subsequently changed from MySQL to Postgres by [Carl](https://github.com/carlosfunk)

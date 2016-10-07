@@ -1,7 +1,7 @@
 ---
 dependencies:
   - geerlingguy.java
-  - geerlingguy.mysql
+  - ANXS.postgresql
 
 galaxy_info:
   author: geerlingguy

@@ -10,7 +10,6 @@ env:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y curl
-  - sudo apt-get remove --purge 'mysql*'
 
 install:
   # Install Ansible.
@@ -20,7 +19,7 @@ install:
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
   # Install required dependencies.
-  - ansible-galaxy install geerlingguy.java geerlingguy.mysql
+  - ansible-galaxy install geerlingguy.java ANXS.postgresql
 
 script:
   # Check the role/playbook's syntax.

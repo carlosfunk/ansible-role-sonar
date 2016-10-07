@@ -1,5 +1,5 @@
 ---
-- name: Configure SonarQube JDBC settings for MySQL.
+- name: Configure SonarQube JDBC settings.
   lineinfile:
     dest: /usr/local/sonar/conf/sonar.properties
     regexp: "{{ item.regexp }}"
@@ -7,8 +7,8 @@
   notify: restart sonar
   with_items:
     - regexp: "^sonar.jdbc.username"
-      line: "sonar.jdbc.username={{ sonar_mysql_username }}"
+      line: "sonar.jdbc.username={{ sonar_database_username }}"
     - regexp: "^sonar.jdbc.password"
-      line: "sonar.jdbc.password={{ sonar_mysql_password }}"
+      line: "sonar.jdbc.password={{ sonar_database_password }}"
     - regexp: "^sonar.jdbc.url"
-      line: "sonar.jdbc.url=jdbc:mysql://{{ sonar_mysql_host }}:{{ sonar_mysql_port }}/{{ sonar_mysql_database }}?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance"
+      line: "sonar.jdbc.url=jdbc:postgresql://{{ sonar_database_host }}:{{ sonar_database_port }}/{{ sonar_database }}"
